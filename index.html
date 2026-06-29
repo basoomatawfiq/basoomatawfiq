@@ -243,9 +243,8 @@
         }
 
         .metric-row:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
         }
 
         .metric-tag {
@@ -270,6 +269,49 @@
             font-size: 0.8rem;
             color: var(--text-muted);
             margin-top: 4px;
+        }
+
+        /* Communication Channel Interface */
+        .contact-panel {
+            background-color: #F9FAFB;
+            border: 1px solid var(--border);
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .contact-panel-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            transition: color 0.2s ease;
+        }
+
+        .contact-link:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-link:hover {
+            color: var(--accent);
+        }
+
+        .contact-icon {
+            font-size: 1.1rem;
+            color: var(--accent);
+            width: 20px;
+            text-align: center;
         }
 
         /* Portfolio Matrix Section */
@@ -378,7 +420,7 @@
         .footer-grid {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 30px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             padding-bottom: 30px;
             margin-bottom: 30px;
@@ -405,6 +447,25 @@
             font-size: 0.8rem;
             line-height: 1.6;
             color: #667085;
+        }
+
+        .footer-contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-contact-link {
+            color: #98A2B3;
+            text-decoration: none;
+            transition: color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-contact-link:hover {
+            color: var(--accent);
         }
 
         .footer-bottom {
@@ -531,6 +592,17 @@
                 <div class="metric-value">Nasser Road Hub</div>
                 <div class="metric-sub">Founding Partner, Enterprise Printing</div>
             </div>
+
+            <!-- Integrated Institutional Contact Interface -->
+            <div class="contact-panel">
+                <div class="contact-panel-title">Institutional Channels</div>
+                <a href="mailto:basoomatawfiq1427@gmail.com" class="contact-link">
+                    <span class="contact-icon">✉</span> basoomatawfiq1427@gmail.com
+                </a>
+                <a href="tel:+256769088507" class="contact-link">
+                    <span class="contact-icon">📞</span> +256 769 088507
+                </a>
+            </div>
         </aside>
 
     </main>
@@ -576,6 +648,14 @@
                     <h4>Basooma Tawfiq</h4>
                     <p>Leadership & Enterprise</p>
                 </div>
+                <div class="footer-contact-info">
+                    <a href="mailto:basoomatawfiq1427@gmail.com" class="footer-contact-link">
+                        <span>✉</span> basoomatawfiq1427@gmail.com
+                    </a>
+                    <a href="tel:+256769088507" class="footer-contact-link">
+                        <span>📞</span> +256 769 088507
+                    </a>
+                </div>
                 <div class="footer-legacy">
                     Inspired by the generational standard of East African industrial pioneers. Engineered for institutional transparency, economic velocity, and national impact.
                 </div>
@@ -599,7 +679,6 @@
         function setCanvasSize() {
             width = canvas.width = canvas.offsetWidth;
             height = canvas.height = canvas.offsetHeight;
-            // Adjust vector array counts dynamically by layout capacity
             numParticles = Math.min(Math.floor((width * height) / 7500), 50);
             generateParticles();
         }
@@ -663,7 +742,6 @@
 
         window.addEventListener('resize', () => {
             const oldWidth = width;
-            // Debounce canvas redraw sequences on small micro-resize adjustments on mobile devices
             if (Math.abs(canvas.offsetWidth - oldWidth) > 20) {
                 setCanvasSize();
             }
